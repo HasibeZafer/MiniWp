@@ -1,33 +1,58 @@
 package com.hasibezafer.www.miniwp;
 
-import java.time.LocalDate;
 import java.util.Scanner;
-import java.util.Set;
 
 public class MiniWpTest {
+	
 
-	private static final LocalDate LocalDate = null;
-	private static final String String = null;
-	private static final java.lang.String Set = null;
+		public static void main(String[] args) {
+			Scanner input = new Scanner(System.in);
+			
+					
+			while (true) {
+				Menu.printMenu();
+				int select=input.nextInt();
+				processInput(select);
+			}
 
-	public static void main(String[] args) {
-		
-		Scanner input = new Scanner(System.in);
-		// 
-		System.out.print("Please enter name: ");
-		    String title = input.nextLine();  // local variable
-		    System.out.print("Please enter value: " );
-		    String body = input.nextLine();  // local variable
-		    System.out.print("Please enter value: " );
-		    String category = input.nextLine();  // local variable
-		    System.out.print("Please enter value: " );
-		    String comments = input.nextLine();  // local variable
-		  
-		    
-		
-		    
-		    // use local variables in constructor call
-			Page post = new Page(title,body,category); 
+
+		}
+
+		private static void processInput(int select) {
+			Scanner input = new Scanner(System.in);	
+			switch (select) {
+			case 0:
+				System.out.println("Exiting...");
+				System.exit(0);
+			case 1:
+				Page pages2 = new Page();
+				PageHelper.addPage(pages2);
+				System.out.println("Created new page!");
+				break;
+			case 2:
+				System.out.println("Select of post type:");
+				System.out.println("Enter 1 for Video Post ||| Enter 2 for Text Post:");
+				Page addPost = new Page();
+				int type= input.nextInt();
+				PageHelper.addPost(type);
+				break;
+			//case 3:
+				
+				//TodoHelper.remove(Integer.parseInt(param)-1);
+				//break;
+				
+			//case 4:
+				//try {
+					//index = Integer.parseInt(param);
+					//TodoHelper.mark(index-1 , false);
+				//} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					//System.out.println("Error" + e.getMessage());
+			//	}
+
+			default:
+				break;
+			}
+
+		}
 	}
-
-}

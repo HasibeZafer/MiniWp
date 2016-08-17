@@ -9,8 +9,6 @@ public class Comment {
 	LocalDate today = LocalDate.now();
 	
 	
-	public void ListPost(){
-		
-	}
+	
 
 }
